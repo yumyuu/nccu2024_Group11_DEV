@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paper Helper</title>
+</head>
+<body>
+    <h1>Paper Helper: PDF to Presentation</h1>
+    <form method="post" enctype="multipart/form-data">
+        <label for="pdf">選擇 PDF 文件：</label>
+        <input type="file" name="pdf" accept=".pdf" required><br><br>
+
+        <label for="images">選擇圖片（可多選）：</label>
+        <input type="file" name="images" accept=".png,.jpg,.jpeg" multiple required><br><br>
+
+        <button type="submit">生成 PPT</button>
+    </form>
+</body>
+</html>
