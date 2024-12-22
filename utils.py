@@ -30,7 +30,11 @@ def generate_pdf_summary_and_details(pdf_text):
         2. **方法**：詳細描述文檔中使用的研究方法或分析技巧。
         3. **結果**：呈現研究的主要結果，並詳細描述每個發現的具體細節。
         4. **結論與討論**：分析結果的意涵，並討論研究的貢獻、局限性，以及未來研究的方向。
-        每個部分的描述應該詳盡且具體，避免簡單概括，要求更多的上下文和分析，幫助讀者深入理解文檔的精髓。：\n{pdf_text[:3000]}"""
+        每個部分的描述應該詳盡且具體，避免簡單概括，要求更多的上下文和分析，幫助讀者深入理解文檔的精髓。：\n{pdf_text[:5000]}"""
+        print(pdf_text)
+        question = f"你現在是作為一名教授，我希望基於以下論文產生教授會發出的3個提問，請用英文：\n{pdf_text[:5000]}"
+        #print(question)
+        answer = ask_llm(question)
 
         summary_response = model.generate_content(summary_prompt)
         details_response = model.generate_content(details_prompt)
@@ -42,6 +46,15 @@ def generate_pdf_summary_and_details(pdf_text):
     except Exception as e:
         print(f"生成摘要與詳細時發生錯誤：{e}")
         return "未能生成摘要。", "未能生成詳細重點整理。"
+
+def ask_llm(prompt):
+    try:
+        response = model.generate_content(prompt)
+        print(response)
+        return response.text.strip() if response else "抱歉，無法生成回答。"
+    except Exception as e:
+        print(f"LLM 問答失敗: {e}")
+        return "抱歉，無法處理您的請求。"
 
 def generate_image_description(image_path):
     try:
