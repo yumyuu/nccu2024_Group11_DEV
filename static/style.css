@@ -1,0 +1,213 @@
+/* 全局樣式 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #333333;
+}
+
+.main-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #4caf50;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2em;
+    color: #666666;
+    margin-bottom: 30px;
+}
+
+/* 文件上傳區域 */
+.upload-section {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.file-upload-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.file-upload-group label {
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.file-upload {
+    background-color: #f3f3f3;
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+    text-align: center;
+}
+
+.file-upload input[type="file"] {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.file-upload .upload-instruction {
+    font-size: 16px;
+    color: #888888;
+}
+
+.file-upload .file-format {
+    display: block;
+    font-size: 14px;
+    color: #bbbbbb;
+    margin-top: 10px;
+}
+
+/* 顯示文件名稱，處理溢出文字 */
+.file-name {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #4caf50;
+    text-align: center;
+    white-space: nowrap; /* 禁止換行 */
+    overflow: hidden;    /* 隱藏超出內容 */
+    text-overflow: ellipsis; /* 顯示省略號 */
+    max-width: 100%;     /* 適配容器寬度 */
+}
+
+.file-name-list {
+    margin-top: 10px;
+    padding: 0;
+    list-style-type: none;
+    font-size: 16px;
+    color: #4caf50;
+    text-align: left;
+    max-height: 150px; /* 增加高度限制 */
+    overflow-y: auto; /* 超出高度時可滾動 */
+}
+
+.ppt-preview iframe {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 500px;
+}
+
+
+/* 調整 iframe 預覽容器 */
+.ppt-preview iframe {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+/* 進度條容器 */
+.progress-bar-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.progress-bar {
+    width: 100%;
+    background-color: #f3f3f3;
+    border: 1px solid #ccc;
+    height: 20px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.progress {
+    width: 0;
+    height: 100%;
+    background-color: #4caf50;
+    transition: width 0.5s ease-in-out;
+}
+
+
+/* 按鈕樣式 */
+button {
+    background-color: #4caf50;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* 問答卡片樣式 */
+.qa-section .cards-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    width: 200px;
+    height: 150px;
+    perspective: 1000px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+}
+
+.card-front {
+    background-color: #4caf50;
+    color: white;
+}
+
+.card-back {
+    background-color: #fff;
+    color: #333;
+    transform: rotateY(180deg);
+}

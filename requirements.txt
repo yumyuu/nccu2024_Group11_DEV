@@ -5,3 +5,4 @@ fitz==0.0.1.dev2
 frontend==0.0.3
 tool==0.8.0
 tools==0.1.9
+pymupdf==1.25.1

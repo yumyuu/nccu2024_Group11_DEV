@@ -3,17 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paper to PPT</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Paper Helper</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <h1>Upload Your PDF and Images</h1>
-    <form action="/generate_ppt" method="post" enctype="multipart/form-data">
-        <label for="pdf">Upload PDF:</label>
-        <input type="file" name="pdf" accept=".pdf" required><br><br>
-        <label for="images">Upload Images (Optional):</label>
-        <input type="file" name="images" accept=".jpg,.jpeg,.png" multiple><br><br>
-        <button type="submit">Generate PPT</button>
-    </form>
+    <div class="main-container">
+        <header>
+            <h1>Paper Helper: Your Presentation Partner</h1>
+            <p>Upload your PDF and images to generate stunning slides!</p>
+        </header>
+
+        <!-- 上傳文件區域 -->
+        <section class="upload-section">
+            <form id="pptForm" method="post" enctype="multipart/form-data">
+                <div class="file-upload-group">
+                    <label for="pdf">選擇論文 PDF 文件:</label>
+                    <div class="file-upload">
+                        <input type="file" id="pdf" name="pdf" accept="application/pdf" required>
+                        <span class="upload-instruction">Drag and drop file here</span>
+                        <span class="file-format">Limit 10MB per file • PDF</span>
+                    </div>
+                    <div id="pdfFileName" class="file-name"></div>
+                </div>
+    
+                <div class="file-upload-group">
+                    <label for="images">選擇圖片 (可多選):</label>
+                    <div class="file-upload">
+                        <input type="file" id="images" name="images" accept="image/png, image/jpeg" multiple>
+                        <span class="upload-instruction">Drag and drop files here</span>
+                        <span class="file-format">Limit 5 files • PNG, JPG, JPEG</span>
+                    </div>
+                    <ul id="imageFileNames" class="file-name-list"></ul>
+                </div>
+    
+                <button type="submit" id="generatePptButton">生成 PPT</button>
+            </form>
+        </section>
+
+        <!-- 進度條 -->
+        <section id="progressBarContainer" class="progress-bar-container" style="display: none;">
+            <p>生成中，請稍候...</p>
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+        </section>
+
+        <!-- PPT 預覽 -->
+        <section id="pptPreviewContainer" class="ppt-preview" style="display: none;">
+            <h2>PPT 預覽:</h2>
+            <iframe id="pptIframe" style="width: 100%; height: 500px; border: none;"></iframe>
+            <button id="downloadPptButton" style="display: block;">下載 PPT</button>
+        </section>        
+
+        <!-- 問答卡片 -->
+        <section id="questionsContainer" class="qa-section" style="display: none;">
+            <h2>教授問答:</h2>
+            <div id="qaCards" class="cards-container"></div>
+        </section>
+    </div>
+
+    <script src="/static/script.js"></script>
 </body>
 </html>

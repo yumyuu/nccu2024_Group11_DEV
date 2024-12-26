@@ -65,6 +65,6 @@ def create_presentation(pdf_path, image_folder):
     prs = remove_empty_placeholders(prs)
     prs = adjust_bullet_points(prs, font_size=20, line_spacing=1.2)
 
-    output_path = 'pdf_and_images_analysis.pptx'
+    output_path = os.path.join('outputs', 'pdf_and_images_analysis.pptx')
     prs.save(output_path)
     return output_path
